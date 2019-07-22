@@ -13,5 +13,3 @@ class User
 		puts @@all_users
 	end
 end
-
-binding.pry
