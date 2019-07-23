@@ -14,13 +14,60 @@ class Event
 		@start_date = @start_date + (24 * 3600)
 	end
 
-	def get_start_date
-		puts @start_date
+
+  	def end_date
+	    return @start_date + duration*60
+  	end
+
+  	def is_past?
+	    return @start_date < Time.now
+  	end
+
+	def is_future?
+	    !self.is_past?
 	end
+
+	def is_soon?
+	    return @start_date < Time.now + 60*30
+	end
+
+	def to_s
+	    puts ">Titre : #{@title}"
+	    puts ">Date de début : #{@start_date}"
+	    puts ">Durée : #{@duration} minutes"
+	    print ">Invités :"
+	    puts @attendes.join(', ')
+	end
+
+	def age_analysis
+	    age_array = []
+	    average = 0
+
+	    @attendees.each do |attendees|
+	      age_array << attendees.age
+	      average = average + attendee.age
+	end
+
+    average = average / attendees.length
+
+    puts "Voici les âges des participants : "
+    puts age_array.join(", ")
+    puts "La moyenne d'âge est de : #{average} ans"
+  end
 end
 
-attendees = ["truc@machin.com", "bidule@chose.fr"]
-my_event = Event.new("2010-10-31 12:00", 30, "standup quotidien", attendees)
+# Héritage
+class WorkEvent < Event
+  def is_event_acceptable?
 
-my_event.postpone_24h
-my_event.get_start_date
+    if @attendees.length > 3 || @duration > 60
+      puts "Cette réunion ne respecte pas nos bonnes pratiques !"
+      return false
+    else
+      puts "Cette réunion est OK."
+      return true
+    end
+  end
+end
+
+binding.pry

@@ -10,3 +10,9 @@ require_relative 'lib/event'
 
 # Maintenant c'est open bar pour tester ton application. Tous les fichiers importants sont chargés
 # Tu peux faire User.new, Event.new, binding.pry, User.all, etc.
+
+
+# julie = User.new("julie@email.com", 35) #je crée un premier User
+# jean = User.new("jean@maimail.com", 22) #puis un second User
+
+# meeting = WorkEvent.new("2019-01-17 09:00", 70, "réunion de travail", [julie, jean]) # je crée un WorkEvent

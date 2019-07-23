@@ -25,5 +25,3 @@ class User
 		return false
 	end
 end
-
-binding.pry
