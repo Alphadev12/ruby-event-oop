@@ -10,6 +10,20 @@ class User
 	end
 
 	def self.all
-		puts @@all_users
+		@@all_users
+	end
+
+	def self.find_by_email(email)
+		@@all_users.each do |user|
+
+			if user.email == email
+				return user
+			end
+		end
+
+		puts "Aucun utilisateur n'a cet email"
+		return false
 	end
 end
+
+binding.pry
